@@ -6,14 +6,45 @@
     <artifactId>french-cadastre-parser</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>jar</packaging>
     <name>french-cadastre-parser</name>
     <description>Kotlin library to parse French cadastral plan</description>
+    <url>http://github.com/mdeverdelhan/french-cadastre-parser</url>
+    <inceptionYear>2025</inceptionYear>
+    <developers>
+        <developer>
+            <name>Marc de Verdelhan</name>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>http://github.com/mdeverdelhan/french-cadastre-parser/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <url>http://github.com/mdeverdelhan/french-cadastre-parser/actions</url>
+    </ciManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:mdeverdelhan/french-cadastre-parser.git</connection>
+        <developerConnection>scm:git:git@github.com:mdeverdelhan/french-cadastre-parser.git</developerConnection>
+        <url>http://github.com/mdeverdelhan/french-cadastre-parser</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <kotlin.version>2.1.0</kotlin.version>
         <serialization.version>1.8.0</serialization.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
 
@@ -85,9 +116,96 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <releaseProfiles>maven-central-release</releaseProfiles>
+                </configuration>
+            </plugin>
+            
         </plugins>
 
     </build>
+
+    <profiles>
+
+        <!-- Only when performing a release (i.e. not for snapshots) -->
+        <profile>
+            <id>maven-central-release</id>
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Artifact signing -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- See https://central.sonatype.org/publish/publish-portal-maven/ -->
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.4.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <tokenAuth>true</tokenAuth>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
 
 </project>
 
