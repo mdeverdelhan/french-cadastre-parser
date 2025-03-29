@@ -168,7 +168,7 @@
                         <version>2.0.0</version>
                         <executions>
                             <execution>
-                                <phase>pre-site</phase>
+                                <phase>prepare-package</phase>
                                 <goals>
                                     <goal>javadocJar</goal>
                                 </goals>

@@ -4,6 +4,9 @@ import eu.verdelhan.cadastrefr.model.ParcelleFeatureCollection
 import eu.verdelhan.cadastrefr.model.TsurfFeatureCollection
 import kotlinx.serialization.json.Json
 
+/**
+ * Parser for French cadastre
+ */
 class FrenchCadastreParser {
 
     val json = Json {
