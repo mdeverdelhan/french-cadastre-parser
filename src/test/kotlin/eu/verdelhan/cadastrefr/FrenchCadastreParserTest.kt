@@ -43,4 +43,14 @@ class FrenchCadastreParserTest {
         assertEquals("Objet_1162818", tsurf.features[3].id)
         assertEquals("65", tsurf.features[0].properties.sym)
     }
+
+    @Test
+    fun `test parseAdressesJson`() {
+        val adressesJson = readResourceFile("adresses_8_bd_du_port_lat_48_789&lon_2_789.json")
+        val addr = FrenchCadastreParser().parseAdressesJson(adressesJson)
+        assertNotNull(addr)
+        assertEquals(10, addr.features.size)
+        assertEquals("8 Boulevard du port-mulon", addr.features[9].properties.name)
+        assertEquals("95127", addr.features[0].properties.citycode)
+    }
 }

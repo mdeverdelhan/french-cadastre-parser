@@ -1,0 +1,44 @@
+package eu.verdelhan.cadastrefr.model
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class AdresseFeatureCollection(
+    @SerialName("type") val type: String,
+    @SerialName("features") val features: List<AdresseFeature>
+)
+
+@Serializable
+data class AdresseFeature(
+    @SerialName("type") val type: String,
+    @SerialName("geometry") val geometry: AdresseGeometry,
+    @SerialName("properties") val properties: AdresseProperties
+)
+
+@Serializable
+data class AdresseGeometry(
+    @SerialName("type") val type: String,
+    @SerialName("coordinates") val coordinates: List<Double>
+)
+
+@Serializable
+data class AdresseProperties(
+    @SerialName("label") val label: String,
+    @SerialName("score") val score: Double,
+    @SerialName("housenumber") val housenumber: String? = null,
+    @SerialName("id") val id: String,
+    @SerialName("banId") val banId: String? = null,
+    @SerialName("name") val name: String,
+    @SerialName("postcode") val postcode: String,
+    @SerialName("citycode") val citycode: String,
+    @SerialName("x") val x: Double,
+    @SerialName("y") val y: Double,
+    @SerialName("city") val city: String,
+    @SerialName("context") val context: String,
+    @SerialName("type") val type: String,
+    @SerialName("importance") val importance: Double,
+    @SerialName("street") val street: String,
+    @SerialName("distance") val distance: Int,
+    @SerialName("_type") val underscoreType: String
+)

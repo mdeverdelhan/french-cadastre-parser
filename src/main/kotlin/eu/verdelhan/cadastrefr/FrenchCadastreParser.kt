@@ -1,6 +1,7 @@
 import eu.verdelhan.cadastrefr.model.BatimentFeatureCollection
 import eu.verdelhan.cadastrefr.model.ParcelleFeatureCollection
 import eu.verdelhan.cadastrefr.model.TsurfFeatureCollection
+import eu.verdelhan.cadastrefr.model.AdresseFeatureCollection
 import kotlinx.serialization.json.Json
 
 /**
@@ -52,6 +53,16 @@ class FrenchCadastreParser {
      * @return A [TsurfFeatureCollection] object.
      */
     fun parsePciTsurfJson(jsonString: String): TsurfFeatureCollection {
+        return parseJson(jsonString)
+    }
+
+    /**
+     * Parses a JSON string into a [AdresseFeatureCollection].
+     *
+     * @param jsonString The JSON string containing address data.
+     * @return A [AdresseFeatureCollection] object.
+     */
+    fun parseAdressesJson(jsonString: String): AdresseFeatureCollection {
         return parseJson(jsonString)
     }
 }
