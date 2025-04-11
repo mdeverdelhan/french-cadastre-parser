@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2]
+
+- Fixed package in `FrenchCadastreParser` class
+
 ## [1.1] - 2025-04-04
 
 - Added Javadoc
