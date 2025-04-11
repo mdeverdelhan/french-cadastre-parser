@@ -1,3 +1,5 @@
+package eu.verdelhan.cadastrefr
+
 import eu.verdelhan.cadastrefr.model.BatimentFeatureCollection
 import eu.verdelhan.cadastrefr.model.ParcelleFeatureCollection
 import eu.verdelhan.cadastrefr.model.TsurfFeatureCollection
