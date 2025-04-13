@@ -16,7 +16,6 @@ class FrenchCadastreParser {
 
     /**
      * Parses a JSON string into the specified type.
-     *
      * @param T The type to parse into.
      * @param jsonString The JSON string to parse.
      * @return The parsed object of type T.
@@ -26,42 +25,39 @@ class FrenchCadastreParser {
     }
 
     /**
-     * Parses a JSON string into a [ParcelleFeatureCollection].
-     *
-     * @param jsonString The JSON string containing parcel data.
-     * @return A [ParcelleFeatureCollection] object.
+     * Parses a JSON string containing parcel features into a [FeatureCollection] of [ParcelleProperties].
+     * @param jsonString The JSON string representing parcel features.
+     * @return A [FeatureCollection] of [ParcelleProperties].
      */
     fun parseParcellesJson(jsonString: String): FeatureCollection<ParcelleProperties> {
         return parseJson(jsonString)
     }
 
     /**
-     * Parses a JSON string into a [BatimentFeatureCollection].
-     *
-     * @param jsonString The JSON string containing building data.
-     * @return A [BatimentFeatureCollection] object.
+     * Parses a JSON string containing building features into a [FeatureCollection] of [BatimentProperties].
+     * @param jsonString The JSON string representing building features.
+     * @return A [FeatureCollection] of [BatimentProperties].
      */
     fun parseBatimentsJson(jsonString: String): FeatureCollection<BatimentProperties> {
         return parseJson(jsonString)
     }
 
     /**
-     * Parses a JSON string into a [TsurfFeatureCollection].
-     *
-     * @param jsonString The JSON string containing topographic surface data.
-     * @return A [TsurfFeatureCollection] object.
+     * Parses a JSON string containing topographic surface features into a [FeatureCollection] of [TsurfProperties].
+     * @param jsonString The JSON string representing topographic surface features.
+     * @return A [FeatureCollection] of [TsurfProperties].
      */
     fun parsePciTsurfJson(jsonString: String): FeatureCollection<TsurfProperties> {
         return parseJson(jsonString)
     }
 
     /**
-     * Parses a JSON string into a [AdresseFeatureCollection].
-     *
-     * @param jsonString The JSON string containing address data.
-     * @return A [AdresseFeatureCollection] object.
+     * Parses a JSON string containing address features into a [FeatureCollection] of [AdresseProperties].
+     * @param jsonString The JSON string representing address features.
+     * @return A [FeatureCollection] of [AdresseProperties].
      */
     fun parseAdressesJson(jsonString: String): FeatureCollection<AdresseProperties> {
         return parseJson(jsonString)
     }
+
 }
