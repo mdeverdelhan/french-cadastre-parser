@@ -3,6 +3,7 @@ package eu.verdelhan.cadastrefr.model
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonClassDiscriminator
 
 @Serializable
@@ -17,7 +18,11 @@ data class Feature<T>(
     val id: String? = null,
     val geometry: Geometry,
     val properties: T
-)
+) {
+    fun getGeometryAsJson(): String {
+        return Json.encodeToString(Geometry.serializer(), geometry)
+    }
+}
 
 @Serializable
 @OptIn(ExperimentalSerializationApi::class)
