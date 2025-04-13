@@ -1,5 +1,6 @@
 package eu.verdelhan.cadastrefr
 
+import eu.verdelhan.cadastrefr.model.MultiPolygon
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.nio.file.Files
@@ -29,7 +30,8 @@ class FrenchCadastreParserTest {
         assertNotNull(batiments)
         assertEquals(5, batiments.features.size)
         assertEquals("34202", batiments.features[0].properties.commune)
-        assertTrue(batiments.features[1].geometry.coordinates.get(0).get(0).get(0).contains(43.5815612))
+        val bat1Geom = batiments.features[1].geometry as MultiPolygon
+        assertTrue(bat1Geom.coordinates[0][0][0].contains(43.5815612))
     }
 
     @Test

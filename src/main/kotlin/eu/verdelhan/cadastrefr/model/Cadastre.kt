@@ -3,22 +3,6 @@ package eu.verdelhan.cadastrefr.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Serializable
-data class ParcelleFeatureCollection(@SerialName("type") val type: String,
-                                     @SerialName("features") val features : List<ParcelleFeature>
-)
-
-@Serializable
-data class ParcelleFeature(@SerialName("geometry") val geometry: ParcelleGeometry,
-                           @SerialName("id") val id: String,
-                           @SerialName("properties") val properties: ParcelleProperties,
-                           @SerialName("type") val type: String
-)
-
-@Serializable
-data class ParcelleGeometry(@SerialName("coordinates") val coordinates: List<List<List<Double>>>,
-                            @SerialName("type") val type: String
-)
 
 @Serializable
 data class ParcelleProperties(@SerialName("arpente") val arpente: Boolean,
@@ -30,4 +14,18 @@ data class ParcelleProperties(@SerialName("arpente") val arpente: Boolean,
                               @SerialName("prefixe") val prefixe: String,
                               @SerialName("section") val section: String,
                               @SerialName("updated") val updated: String
+)
+
+@Serializable
+data class BatimentProperties(@SerialName("type") val type: String,
+                              @SerialName("nom") val nom: String? = null,
+                              @SerialName("commune") val commune: String,
+                              @SerialName("created") val created: String,
+                              @SerialName("updated") val updated: String
+)
+
+@Serializable
+data class TsurfProperties(@SerialName("SYM") val sym: String,
+                           @SerialName("DATE_OBS") val dateObs: String,
+                           @SerialName("DATE_MAJ") val dateMaj: String
 )

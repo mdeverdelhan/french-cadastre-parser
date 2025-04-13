@@ -4,25 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class AdresseFeatureCollection(
-    @SerialName("type") val type: String,
-    @SerialName("features") val features: List<AdresseFeature>
-)
-
-@Serializable
-data class AdresseFeature(
-    @SerialName("type") val type: String,
-    @SerialName("geometry") val geometry: AdresseGeometry,
-    @SerialName("properties") val properties: AdresseProperties
-)
-
-@Serializable
-data class AdresseGeometry(
-    @SerialName("type") val type: String,
-    @SerialName("coordinates") val coordinates: List<Double>
-)
-
-@Serializable
 data class AdresseProperties(
     @SerialName("label") val label: String,
     @SerialName("score") val score: Double,
