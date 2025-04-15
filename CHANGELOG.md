@@ -2,6 +2,7 @@
 
 ## [1.2] - 2025-04-15
 
+- Updated GeoJSON model
 - Added Javadoc
 - Fixed package in `FrenchCadastreParser` class
 
