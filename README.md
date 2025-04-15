@@ -9,7 +9,7 @@
 ## Features
 
 - JSON parsing for French cadastral data
-- Support for parcels, buildings, and surfaces (Tsurf)
+- Support for parcels, buildings, and topographic surfaces (Tsurf)
 - Kotlin and Java compatibility
 - Lightweight and easy to integrate
 - MIT License
@@ -22,7 +22,7 @@
 <dependency>
     <groupId>eu.verdelhan</groupId>
     <artifactId>french-cadastre-parser</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 </dependency>
 ```
 
@@ -31,21 +31,23 @@
 ### Basic Usage in Kotlin
 
 ```kotlin
+val json = File("/path/to/file/cadastre-parcelles.json").readText()
 val parser = FrenchCadastreParser()
-val jsonInput = """{"type":"FeatureCollection","features":[]}"""
+val parcelles: FeatureCollection<ParcelleProperties> = parser.parseParcellesJson(json)
 
-val parcels: ParcelleFeatureCollection = parser.parseParcellesJson(jsonInput)
-println("Parsed ParcelleFeatureCollection: ${parcels.type}")
+println("13th parcel ID: ${parcelles.features[13].id}")
+println("Third parcel area: ${parcelles.features[2].properties.contenance}")
 ```
 
 ### Basic Usage in Java
 
 ```java
 FrenchCadastreParser parser = new FrenchCadastreParser();
-String jsonInput = "{"type":"FeatureCollection","features":[]}";
+String json = Files.readString(Path.of("/path/to/file/cadastre-parcelles.json"));
+FeatureCollection<ParcelleProperties> parcelles = parser.parseParcellesJson(json);
 
-ParcelleFeatureCollection parcels = parser.parseParcellesJson(jsonInput);
-System.out.println("Parsed ParcelleFeatureCollection: " + parcels.getType());
+System.out.println("Total parcels: " + parcelles.getFeatures().size());
+System.out.println("Third parcel area: " + parcelles.getFeatures().get(2).getProperties().getContenance());
 ```
 
 ## About French Cadastral Data

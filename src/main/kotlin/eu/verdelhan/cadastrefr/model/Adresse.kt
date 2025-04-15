@@ -3,6 +3,9 @@ package eu.verdelhan.cadastrefr.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Represents the properties of an address, typically returned by the BAN (Base Adresse Nationale).
+ */
 @Serializable
 data class AdresseProperties(
     @SerialName("label") val label: String,
