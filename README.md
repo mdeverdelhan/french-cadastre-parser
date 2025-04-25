@@ -35,7 +35,7 @@ val json = File("/path/to/file/cadastre-parcelles.json").readText()
 val parser = FrenchCadastreParser()
 val parcelles: FeatureCollection<ParcelleProperties> = parser.parseParcellesJson(json)
 
-println("13th parcel ID: ${parcelles.features[13].id}")
+println("14th parcel ID: ${parcelles.features[13].id}")
 println("Third parcel area: ${parcelles.features[2].properties.contenance}")
 ```
 
