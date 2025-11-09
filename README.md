@@ -22,7 +22,7 @@
 <dependency>
     <groupId>eu.verdelhan</groupId>
     <artifactId>french-cadastre-parser</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 </dependency>
 ```
 

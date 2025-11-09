@@ -37,8 +37,8 @@
     </scm>
 
     <properties>
-        <kotlin.version>2.1.0</kotlin.version>
-        <serialization.version>1.8.0</serialization.version>
+        <kotlin.version>2.2.21</kotlin.version>
+        <serialization.version>1.9.0</serialization.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -63,13 +63,13 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.12.1</version>
+            <version>5.14.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.12.1</version>
+            <version>5.14.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -120,13 +120,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <version>3.5.4</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.2.0</version>
                 <configuration>
                     <releaseProfiles>maven-central-release</releaseProfiles>
                 </configuration>
@@ -164,7 +164,7 @@
                     <plugin>
                         <groupId>org.jetbrains.dokka</groupId>
                         <artifactId>dokka-maven-plugin</artifactId>
-                        <version>2.0.0</version>
+                        <version>2.1.0</version>
                         <executions>
                             <execution>
                                 <phase>prepare-package</phase>
@@ -195,7 +195,7 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.4.0</version>
+                        <version>0.9.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3] - 2025-11-09
+
+- Upgraded numerous versions (Kotlin, Kotlinx-serialization, etc.)
+
 ## [1.2] - 2025-04-15
 
 - Updated GeoJSON model
